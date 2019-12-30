@@ -1,3 +1,50 @@
+html {
+  min-height: 100vh;
+}
+
+body {
+  background: center / cover no-repeat url('/cover.jpg');
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.Splash {
+  margin: 36vh 15vw 0;
+}
+
+.Splash-title {
+  font-family: 'Mansalva', serif;
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 1em;
+  margin: 0;
+  text-shadow: 3px 1px 0 #fff;
+}
+
+.Splash-nav {
+  font-size: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+.Splash-navItem {
+  display: inline;
+}
+.Splash-navItem:not(:first-child)::before {
+  color: #3e7a4c;
+  content: "·";
+  font-weight: 600;
+  margin: 0 5px;
+}
+
+.Splash-navLink {
+  color: #3e7a4c;
+  font-weight: 600;
+  text-decoration: none;
+}
+.Splash-navLink:hover {
+  text-decoration: underline;
+}
+
 .App {
   text-align: center;
 }
