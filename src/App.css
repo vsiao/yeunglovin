@@ -3,12 +3,16 @@ html {
 }
 
 body {
-  background: center / cover no-repeat url('/cover.jpg');
   font-family: 'Roboto', Arial, sans-serif;
   line-height: 1;
 }
 
+.ScrollSection {
+  min-height: 100vh;
+}
+
 .Splash {
+  background: center / cover no-repeat url('/cover.jpg');
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -96,27 +100,19 @@ body {
   text-decoration: underline;
 }
 
-.App {
-  text-align: center;
+.AboutUs,
+.RSVP {
+  background: #cc2855;
+  color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.AboutUs,
+.Details,
+.RSVP {
   align-items: center;
+  display: flex;
+  font-size: 24px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }
 
 @keyframes animation-bounce {
