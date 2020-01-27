@@ -4,20 +4,65 @@ html {
 
 body {
   background: center / cover no-repeat url('/cover.jpg');
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1;
 }
 
 .Splash {
-  margin: 36vh 15vw 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.Splash-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15vh;
+  text-align: center;
 }
 
 .Splash-title {
-  font-family: 'Mansalva', serif;
-  font-size: 72px;
-  font-weight: 300;
-  line-height: 1em;
+  background: #cc2855;
+  color: #fff;
+  display: inline-block;
+  font-size: 80px;
+  font-weight: 900;
   margin: 0;
-  text-shadow: 3px 1px 0 #fff;
+  padding: 0.2em;
+}
+
+.Splash-subtitle {
+  background: #fff;
+  color: #cc2855;
+  font-size: 36px;
+  margin: 10px 0 0;
+  padding: 8px 18px;
+  text-transform: lowercase;
+}
+
+.Splash-sticker {
+  align-self: flex-end;
+  background: #cc2855;
+  color: #fff;
+  font-size: 20px;
+  padding: 4px 8px;
+  position: relative;
+  right: -18px;
+  transform: rotate(-8deg);
+}
+
+.Splash-okay {
+  font-size: 18px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.Splash-arrow {
+  animation: animation-bounce 1000ms ease-in infinite;
+  display: inline-block;
+  margin-left: 0.5em;
 }
 
 .Splash-nav {
@@ -31,7 +76,7 @@ body {
 }
 .Splash-navItem:not(:first-child)::before {
   color: #3e7a4c;
-  content: "·";
+  content: '·';
   font-weight: 600;
   margin: 0 5px;
 }
@@ -66,4 +111,16 @@ body {
 
 .App-link {
   color: #09d3ac;
+}
+
+@keyframes animation-bounce {
+  0% {
+    transform: translateY(-1px);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
 }
