@@ -24,18 +24,18 @@ function App() {
           </div>
           <ul className="Splash-nav">
             <li className="Splash-navItem">
+              <Link to="/us" className="Splash-navLink">
+                About us
+              </Link>
+            </li>
+            <li className="Splash-navItem">
+              <Link to="/details" className="Splash-navLink">
+                Details
+              </Link>
+            </li>
+            <li className="Splash-navItem">
               <Link to="/rsvp" className="Splash-navLink">
-                rsvp
-              </Link>
-            </li>
-            <li className="Splash-navItem">
-              <Link to="/schedule" className="Splash-navLink">
-                schedule
-              </Link>
-            </li>
-            <li className="Splash-navItem">
-              <Link to="/stuff" className="Splash-navLink">
-                stuff
+                RSVP
               </Link>
             </li>
           </ul>

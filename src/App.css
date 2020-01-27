@@ -19,7 +19,7 @@ body {
 .Splash-wrapper {
   display: flex;
   flex-direction: column;
-  margin-top: 15vh;
+  margin-top: 10vh;
   text-align: center;
 }
 
@@ -66,27 +66,34 @@ body {
 }
 
 .Splash-nav {
-  font-size: 24px;
+  top: 20px;
+  font-family: 'Roboto Condensed', Arial, sans-serif;
+  font-size: 16px;
   list-style: none;
+  margin: 0;
   padding: 0;
+  position: absolute;
 }
 
 .Splash-navItem {
   display: inline;
 }
 .Splash-navItem:not(:first-child)::before {
-  color: #3e7a4c;
-  content: '·';
+  color: #cc2855;
+  content: ' / ';
   font-weight: 600;
   margin: 0 5px;
 }
 
 .Splash-navLink {
-  color: #3e7a4c;
+  color: #cc2855;
   font-weight: 600;
+  padding: 2px 4px;
   text-decoration: none;
+  text-transform: uppercase;
 }
 .Splash-navLink:hover {
+  background-color: #fff;
   text-decoration: underline;
 }
 
