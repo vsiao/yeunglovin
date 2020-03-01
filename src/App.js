@@ -52,7 +52,14 @@ function Splash() {
 
 function AboutUs() {
   return <ScrollRoute path="/us" className="AboutUs">
-    woah there
+    <ul className="AboutUs-gallery">
+      <li><img className="AboutUs-galleryImage" src="/theporch.jpg" /></li>
+      <li><img className="AboutUs-galleryImage" src="/mtwash.jpg" /></li>
+      <li><img className="AboutUs-galleryImage" src="/stanleypark.jpg" /></li>
+    </ul>
+    <div className="AboutUs-content">
+      woah there
+    </div>
   </ScrollRoute>;
 }
 

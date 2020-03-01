@@ -115,6 +115,24 @@ body {
   justify-content: center;
 }
 
+.AboutUs {
+  display: flex;
+}
+.AboutUs-gallery {
+  width: 30vw;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.AboutUs-galleryImage {
+  display: block;
+  width: 100%;
+}
+.AboutUs-content {
+  flex-grow: 1;
+  text-align: center;
+}
+
 @keyframes animation-bounce {
   0% {
     transform: translateY(-1px);
