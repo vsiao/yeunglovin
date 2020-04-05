@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { useCallback, useEffect, useState } from 'react';
-import { HashRouter, Route, Link } from 'react-router-dom';
+import { HashRouter, Route, Link, useHistory } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -75,36 +75,64 @@ function RSVP() {
   </ScrollRoute>;
 }
 
-function ScrollRoute({ path, className, setHeight, children }) {
+function ScrollRoute({ path, className, children }) {
   return <Route path={path}>
     {({ match }) =>
       <ScrollSection
+        path={path}
         match={match}
         className={className}
-        setHeight={setHeight}
         children={children}
       />}
   </Route>;
 }
 
-function ScrollSection({ match, className, setHeight, children }) {
+function ScrollSection({ path, match, className, children }) {
   const [rootNode, setRootNode] = useState(null);
 
-  // Measure and set the height of this section, once on mount
-  const rootRef = useCallback(node => {
-    setRootNode(node);
-    if (node !== null) {
-      // setHeight(node.getBoundingClientRect().height);
-    }
-  }, []);
+  // Set root node once on mount
+  const rootRef = useCallback(node => setRootNode(node), []);
 
   // If we navigated to this section, scroll it into view
-  const shouldScroll = match && match.isExact && rootNode;
+  const isCurrentRoute = match && match.isExact;
+  const isScrolledIntoView = useCallback(() => {
+    const rootRect = rootNode && rootNode.getBoundingClientRect();
+    return rootRect && rootRect.top < (window.innerHeight / 3) &&
+      rootRect.bottom >= (2 * window.innerHeight / 3);
+  }, [rootNode]);
+
   useEffect(() => {
-    if (shouldScroll) {
+    if (isCurrentRoute && !isScrolledIntoView() && rootNode) {
       rootNode.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [shouldScroll, rootNode]);
+  }, [isCurrentRoute, isScrolledIntoView, rootNode]);
+
+  const history = useHistory();
+
+  // If we scrolled to this section, set the route to it
+  useEffect(() => {
+    if (!isCurrentRoute && rootNode) {
+      const checkScroll = () => {
+        if (isScrolledIntoView()) {
+          history.push(path)
+        }
+      };
+      let timer;
+      const debouncedCheckScroll = () => {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(checkScroll, 50);
+      };
+      window.addEventListener("scroll", debouncedCheckScroll);
+      return () => {
+        if (timer) {
+          clearTimeout(timer);
+        }
+        window.removeEventListener("scroll", debouncedCheckScroll)
+      };
+    }
+  }, [isCurrentRoute, rootNode, isScrolledIntoView, history, path]);
 
   return <section ref={rootRef} className={cx("ScrollSection", className)}>
     {children}
