@@ -8,7 +8,7 @@ function App() {
     <HashRouter basename="/">
       <Splash />
       <AboutUs />
-      <Details />
+      <Schedule />
       <RSVP />
     </HashRouter>
   );
@@ -37,8 +37,8 @@ function Splash() {
         </Link>
       </li>
       <li className="Splash-navItem">
-        <Link to="/details" className="Splash-navLink">
-          Details
+        <Link to="/schedule" className="Splash-navLink">
+          Schedule
         </Link>
       </li>
       <li className="Splash-navItem">
@@ -63,9 +63,90 @@ function AboutUs() {
   </ScrollRoute>;
 }
 
-function Details() {
-  return <ScrollRoute path="/details" className="Details">
-    we're still under construction
+function Schedule() {
+  return <ScrollRoute path="/schedule" className="Schedule">
+    <h2>Schedule</h2>
+    <h4 className="Schedule-event">🛬 arrival</h4>
+
+    <h3>Saturday, October 10<sup>th</sup>, 2020</h3>
+
+    <div class="Schedule-standaloneMap Schedule-map">
+      <div class="Schedule-mapContainer">
+        <iframe className="Schedule-mapFrame" title="Shuttle 1 Map" src="https://www.google.com/maps/d/u/0/embed?mid=1bHg27zQY1E2x3BxUuiPvpbzNJmVJlHbW"></iframe>
+      </div>
+    </div>
+
+    <div class="Schedule-timeline">
+      <div className="Schedule-timelineEvent">
+        <span className="Schedule-timestamp">10:30am</span>
+        <h4 className="Schedule-event">🚌 shuttle pickup</h4>
+        <span class="Schedule-location">Hyatt Regency San Francisco</span>
+      </div>
+      <div className="Schedule-timelineEvent">
+        <span className="Schedule-timestamp">11:00am</span>
+        <h4 className="Schedule-event">🚌 shuttle pickup</h4>
+        <span class="Schedule-location">Courtyard Oakland Downtown</span>
+        <p className="Schedule-description">
+          We have shuttles to the ceremony, picking up at both hotels.
+          Parking at the garden is limited and must be reserved in advance.
+          Let us know if you need to drive in!
+        </p>
+        <div class="Schedule-inlineMap Schedule-map">
+          <div class="Schedule-mapContainer">
+            <iframe className="Schedule-mapFrame" title="Shuttle 1 Map" src="https://www.google.com/maps/d/u/0/embed?mid=1bHg27zQY1E2x3BxUuiPvpbzNJmVJlHbW"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Schedule-timeline">
+      <div className="Schedule-timelineEvent Schedule-majorEvent">
+        <h4 className="Schedule-event">💍 ceremony</h4>
+        <span className="Schedule-timestamp">12:00pm</span>
+        <span className="Schedule-location">Redwood Grove @ UC Botanical Garden</span>
+
+      </div>
+      <div className="Schedule-timelineEvent">
+        <h4 className="Schedule-event">🌸 afternoon walk</h4>
+        <span className="Schedule-timestamp">1:00pm</span>
+        <span className="Schedule-location">UC Botanical Garden at Berkeley</span>
+        <p className="Schedule-description">
+          After the ceremony, enjoy free admission to the gardens
+          which feature over 10,000 types of plants. A small lunch will be provided
+          for you to enjoy while you walk around.
+        </p>
+      </div>
+      <div className="Schedule-timelineEvent">
+        <h4 className="Schedule-miniEvent">shuttle to reception</h4>
+        <span className="Schedule-timestamp">3:00pm</span>
+      </div>
+      <div className="Schedule-timelineEvent Schedule-majorEvent">
+        <h4 className="Schedule-event">🍹 reception</h4>
+        <span className="Schedule-timestamp">3:30pm</span>
+        <span className="Schedule-location">Forage Kitchen</span>
+      </div>
+      <div className="Schedule-timelineEvent">
+        <h4 className="Schedule-event">🍽 dinner</h4>
+        <span className="Schedule-timestamp">5:30pm</span>
+      </div>
+      <div className="Schedule-timelineEvent">
+        <h4 className="Schedule-miniEvent">end of scheduled activities</h4>
+        <span className="Schedule-timestamp">8:00pm</span>
+      </div>
+      <div className="Schedule-timelineEvent Schedule-majorEvent">
+        <h4 className="Schedule-event">💃 after party</h4>
+        <span className="Schedule-timestamp">9:00pm</span>
+        <span className="Schedule-location">???</span>
+        <p className="Schedule-description">
+          We literally don't have any plans! Who knows what will happen?
+        </p>
+      </div>
+    </div>
+
+    <h3>Sunday, October 11<sup>th</sup>, 2020</h3>
+
+    <h4 className="Schedule-event">dim sum</h4>
+    11:30am–1:30pm
+
   </ScrollRoute>;
 }
 
