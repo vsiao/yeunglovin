@@ -136,6 +136,7 @@ body {
 .Schedule {
   display: block;
   text-align: center;
+  padding-bottom: 30px;
 }
 .Schedule-section {
   display: flex;
@@ -251,6 +252,13 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.RSVP {
+  padding-top: 30px;
+}
+.RSVP-formFrame {
+  width: 100vw;
 }
 
 @keyframes animation-bounce {
