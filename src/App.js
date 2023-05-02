@@ -1,11 +1,12 @@
 import cx from "classnames";
 import React, { useCallback, useEffect, useState } from 'react';
-import { HashRouter, Route, Link, useHistory } from 'react-router-dom';
+import { HashRouter, Route, Link, useHistory, Redirect } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <HashRouter basename="/">
+      <Route path="/stream" component={RedirectToYouTube} />
       <Splash />
       <AboutUs />
       <Schedule />
@@ -15,6 +16,13 @@ function App() {
 }
 
 export default App;
+
+function RedirectToYouTube() {
+  useEffect(() => {
+    window.location.href = "https://youtu.be/Zp8LxwKaEj4";
+  }, []);
+  return null;
+}
 
 function Splash() {
   const words = ['Yay!', 'coolbeans', 'Okay, so…', 'And…?', 'Tell me more'];
